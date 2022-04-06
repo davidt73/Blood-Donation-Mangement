@@ -1,0 +1,32 @@
+       <tr >
+           <th>Hospital</th>
+           <th>Blood Type</th>
+           <th>Status</th>
+       </tr>
+   </thead>
+   <tbody>
+     {% if bloodrequest %}
+     {% for br in bloodrequest %}
+     {% for hospital in hospitals %}
+     {% if hospital.Hopital_id == bloodrequest.Hospital_id %}
+      <tr> 
+        <td>{{ hospital.HospitalName }}</td>
+        <td>{{ bloodrequestBlood_Group }}</td>
+        <td><button type="button" class="btn btn-success">Accept</button>&nbsp;<button type="button" class="btn btn-danger">Reject</button>
+      </tr>
+     {% endif %}
+     {% endfor %}
+     {% endfor %}
+     {% else %}
+     <tr> 
+      <td>No Blood Request For Now </td>
+      <td></td>
+      <td></td>
+
+    </tr>
+    {% endif %}
+
+       
+     </tbody>
+ </table>
+ <br>

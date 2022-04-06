@@ -1,0 +1,26 @@
+{% extends 'donor/donor.html' %}
+{% block content %}
+
+
+
+<br>
+  {% for msg in messages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{msg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+<table class="styled-table">
+    <thead>
+         <tr>
+           <th>Donation Request</th>
+           <th><a href="{% url 'donationrequest' 'all' %}"><button type="button" class="btn btn-primary btn-sm" style= "background-color: red;">See All</button></a>
+            <th><a href="{% url 'makerequest'  %}"><button type="button" class="btn btn-primary btn-sm" style= "background-color: red;">Make Request</button></a>
+            </th>
+           </th>
+
+          </tr>
+          {% include 'donor/donationrequestlist.html' %}
+
+{% endblock %}

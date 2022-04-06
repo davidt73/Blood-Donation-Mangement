@@ -1,0 +1,34 @@
+       <tr >
+           <th>Donation</th>
+           <th>Status</th>
+           <th></th>
+       </tr>
+   </thead>
+   <tbody>
+     {% if donation %}
+     {% for dn in donation %}
+      <tr> 
+        <td>{{ dn.Result_id }}</td>
+        {% if dn.status == 'in progress' %}
+        <td><i class="bi bi-circle" style="background-color:yellow;"></i></td>
+        {% elif  dn.status == 'accepted' %}
+        <td><i class="bi bi-circle" style="background-color:green;"></i></td>
+        {% elif  dn.status == 'rejected' %}
+        <td><i class="bi bi-circle" style="background-color:green;"></i></td>
+        {% endif %}
+        <td>{{ dn.status}}</td>        
+      </tr>
+     
+     {% endfor %}
+     {% else %}
+     <tr> 
+      <td>No Donation Request For Now </td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% endif %}
+
+       
+     </tbody>
+ </table>
+ <br>

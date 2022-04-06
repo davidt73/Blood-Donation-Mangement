@@ -1,0 +1,55 @@
+{% extends 'nurse/nurse.html' %}
+{% block content %}
+
+<br>
+<table class="styled-table">
+    <thead>
+         <tr>
+           <th>Appointment Request</th>
+           <th><a href="{% url 'checkappointment' 'all' %}"><button type="button" class="btn btn-primary btn-sm" style= "background-color: red;">See All</button></a>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+
+          <tr >
+            <th>Appointment_id</th>
+            <th>Donor_id</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      {% if appointments %}
+      {% for appointment in appointments %}
+       <tr> 
+         <td>{{ appointment.App_id }}</td>
+         <td>{{ appointment.Donor_id }}</td>
+         <td>{{ appointment.Date }}</td>
+         <td>{{ appointment.Time }}</td>
+         <td><button type="button" class="btn btn-success">Accept</button>&nbsp;<button type="button" class="btn btn-danger">Reject</button></td>      
+       </tr>
+      
+      {% endfor %}
+      {% else %}
+      <tr> 
+       <td>No Donation Request For Now </td>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+
+
+     </tr>
+     {% endif %}
+ 
+        
+      </tbody>
+  </table>
+  <br>
+{% endblock %}
